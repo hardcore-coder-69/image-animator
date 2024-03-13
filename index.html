@@ -24,37 +24,69 @@
         }
 
         .animate {
+            height: 95vh;
+            width: auto;
             animation: myAnimation .2s infinite;
+        }
+
+        @media screen and (max-width: 400px) {
+            .animate {
+                width: 100vw;
+                height: auto;
+            }
+
+            .img {
+                height: 95vh;
+            }
         }
 
         @keyframes myAnimation {
             0% {
-                opacity: 0.7;
-                transform: translate(2px);
+                opacity: 0.9;
+                transform: translateX(-1px);
+            }
+
+            25% {
+                opacity: 0.8;
+                transform: translateX(-2px);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: translateY(-1px);
+            }
+
+            75% {
+                opacity: 0.9;
+                transform: translateY(-2px);
             }
 
             100% {
                 opacity: 1;
+                transform: translateX(1px);
+                transform: translateY(1px);
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="action">
+    <div class="action" id="buttons">
         <input type="file" accept="image/*" id="fileInput">
         <button onclick="uploadHandler()">Upload & Convert</button>
     </div>
 
     <div class="img">
-        <img id="uploaded-img" class="animate" src="" height="500px">
+        <img id="uploaded-img" class="animate" src="">
     </div>
 
     <script>
         function uploadHandler() {
             const fileInput = document.getElementById('fileInput');
-            const file = fileInput.files[0];
+            const buttons = document.getElementById('buttons');
+            buttons.style.display = 'none';
 
+            const file = fileInput.files[0];
             if (file) {
                 const reader = new FileReader();
                 reader.readAsDataURL(file);
