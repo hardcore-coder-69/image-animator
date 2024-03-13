@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: #000;
+        }
+
+        .action {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .animate {
+            animation: myAnimation .2s infinite;
+        }
+
+        @keyframes myAnimation {
+            0% {
+                opacity: 0.7;
+                transform: translate(2px);
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="action">
+        <input type="file" accept="image/*" id="fileInput">
+        <button onclick="uploadHandler()">Upload & Convert</button>
+    </div>
+
+    <div class="img">
+        <img id="uploaded-img" class="animate" src="" height="500px">
+    </div>
+
+    <script>
+        function uploadHandler() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onloadend = function () {
+                    const imageSrc = reader.result;
+                    const imgEl = document.getElementById('uploaded-img');
+                    const img = new Image();
+                    imgEl.src = imageSrc;
+                };
+            } else {
+                alert('Please select an image file.');
+            }
+        }
+
+    </script>
+</body>
+
+</html>
