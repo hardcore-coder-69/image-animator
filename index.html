@@ -8,13 +8,36 @@
 
     <style>
         body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             background-color: #000;
+            color: #ffffff;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        label {
+            font-size: 30px;
+            background-color: #383838;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .upload-btn {
+            font-size: 30px;
+            width: fit-content;
+            cursor: pointer;
         }
 
         .action {
+            margin-top: 100px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-around;
+            justify-content: center;
         }
 
         .img {
@@ -34,10 +57,6 @@
                 width: 100vw;
                 height: auto;
             }
-
-/*             .img {
-                height: 95vh;
-            } */
         }
 
         @keyframes myAnimation {
@@ -72,8 +91,9 @@
 
 <body>
     <div class="action" id="buttons">
+        <label for="fileInput">Choose file</label>
         <input type="file" accept="image/*" id="fileInput">
-        <button onclick="uploadHandler()">Upload & Convert</button>
+        <button class="upload-btn" onclick="uploadHandler()">Upload</button>
     </div>
 
     <div class="img">
