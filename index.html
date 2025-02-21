@@ -184,7 +184,9 @@
                     const imgEl = document.getElementById('uploaded-img');
                     let checkbox = document.getElementById("checkedBox");
                     if(!checkbox.checked) {
-                        imgEl.style.animation = '';
+                        imgEl.classList.remove('animation');
+                    } else {
+                        imgEl.classList.add('animation');
                     }
                     const img = new Image();
                     imgEl.src = imageSrc;
