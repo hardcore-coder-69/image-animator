@@ -136,6 +136,7 @@
         <input type="file" accept="image/*" id="bg-image">
         <label for="fileInput">Upload Image</label>
         <input type="file" accept="image/*" id="fileInput">
+        <input type="checkbox" id="checkedBox" checked>
         <button class="upload-btn" onclick="uploadHandler()">Upload</button>
     </div>
 
@@ -175,6 +176,10 @@
                 reader.onloadend = function () {
                     const imageSrc = reader.result;
                     const imgEl = document.getElementById('uploaded-img');
+                    let checkbox = document.getElementById("myCheckbox");
+                    if(!checkbox.checked) {
+                        imgEl.style.animation = '';
+                    }
                     const img = new Image();
                     imgEl.src = imageSrc;
                 };
