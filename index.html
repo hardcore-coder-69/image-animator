@@ -139,8 +139,9 @@
         <button class="upload-btn" onclick="uploadHandler()">Upload</button>
     </div>
 
-    <div class="img img2" id="img">
-    </div>
+<!--     <div class="img img2" id="img">
+    </div> -->
+    <img class="img2" id="img" src="">
 
     <div class="img img1">
         <img id="uploaded-img" class="animate" src="">
@@ -161,7 +162,8 @@
                 reader.onloadend = function () {
                     const imageSrc = reader.result;
                     const imgEl = document.getElementById('img');
-                    imgEl.style.background = `url(${imageSrc})`;
+                    // imgEl.style.background = `url(${imageSrc})`;
+                    imgEl.src = imageSrc;
                 };
             }
 
