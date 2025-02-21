@@ -43,6 +43,12 @@
             justify-content: center;
         }
 
+        .checkedBox {
+            height: 60px;
+            width: 60px;
+            margin-bottom: 30px;
+        }
+
         .img {
             height: 100vh;
             display: flex;
@@ -136,7 +142,7 @@
         <input type="file" accept="image/*" id="bg-image">
         <label for="fileInput">Upload Image</label>
         <input type="file" accept="image/*" id="fileInput">
-        <input type="checkbox" id="checkedBox" checked>
+        <input type="checkbox" class="checkedBox" id="checkedBox" checked>
         <button class="upload-btn" onclick="uploadHandler()">Upload</button>
     </div>
 
