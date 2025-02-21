@@ -58,13 +58,41 @@
         .animate {
             height: 95vh;
             width: auto;
-            animation: myAnimation .2s infinite;
+            animation: scaleAnimation .5s infinite;
         }
 
         @media screen and (max-width: 600px) {
             .animate {
                 width: 100vw;
                 height: auto;
+            }
+        }
+
+        @keyframes scaleAnimation {
+            0% {
+                opacity: 0.9;
+                transform: scale(1);
+            }
+
+            25% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+
+            75% {
+                opacity: 0.9;
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                transform: scale(1);
             }
         }
 
