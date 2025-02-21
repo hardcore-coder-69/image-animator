@@ -91,20 +91,38 @@
 
 <body>
     <div class="action" id="buttons">
-        <label for="fileInput">Image</label>
+        <label for="bg-image">Background Image</label>
+        <input type="file" accept="image/*" id="bg-image">
+        <label for="fileInput">Upload Image</label>
         <input type="file" accept="image/*" id="fileInput">
         <button class="upload-btn" onclick="uploadHandler()">Upload</button>
     </div>
 
-    <div class="img">
+    <div class="img" id="img">
         <img id="uploaded-img" class="animate" src="">
     </div>
 
     <script>
         function uploadHandler() {
             const fileInput = document.getElementById('fileInput');
+            const bgImageEl = document.getElementById('bg-image');
             const buttons = document.getElementById('buttons');
             buttons.style.display = 'none';
+
+
+            const bgImage = bgImageEl.files[0];
+            if (bgImage) {
+                const reader = new FileReader();
+                reader.readAsDataURL(bgImage);
+                reader.onloadend = function () {
+                    const imageSrc = reader.result;
+                    const imgEl = document.getElementById('img');
+                    imgEl.style.background = `url${imageSrc}`;
+                };
+            } else {
+                alert('Please select an image file.');
+            }
+
 
             const file = fileInput.files[0];
             if (file) {
